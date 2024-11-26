@@ -5,7 +5,7 @@
             "@/*": ["resources/js/*"]
         },
         "module": "ESNext",
-        "target": "ES6",
+        "target": "ES5",
         "moduleResolution": "Node"
     },
     "exclude": ["node_modules", "public"],

@@ -35,7 +35,7 @@ class MeetingController extends Controller
      */
     public function show(Meeting $meeting)
     {
-        //
+        return $meeting->load("documents");
     }
 
     /**

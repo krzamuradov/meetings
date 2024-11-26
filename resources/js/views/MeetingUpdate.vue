@@ -5,12 +5,16 @@
     import { useHelpers } from '@/services/useHelpers';
     import { useMeetings } from '@/services/useMeetings';
     import { onMounted } from 'vue';
+    import { useRoute } from 'vue-router';
 
-    const { meetings, payload, errors, loading, getAllMeetings, newMeeting, redirectToMeetingUpdate } = useMeetings();
-    const { formatDate } = useHelpers();
+    const router = useRoute();
+
+    const id = router.params.id;
+
+    const { meeting, payload, errors, loading, getAllMeetings, getMeetingById, newMeeting, editMeeting, redirectToMeetingUpdate } = useMeetings();
 
     onMounted(async () => {
-        await getAllMeetings();
+        await getMeetingById(id);
     });
 </script>
 
@@ -19,8 +23,8 @@
     <div class="col-4 mx-auto">
         <div class="card">
             <div class="card-body">
-                <h4 class="text-center">Yangi majlis</h4>
-                <form action="" class="row g-3" @submit.prevent="newMeeting">
+                <h4 class="text-center">Malumotlarni o'zgartirish</h4>
+                <form action="" class="row g-3" @submit.prevent="editMeeting(id)">
                     <Input label="O`zbekcha nomi" v-model="payload.name_uz" :errors="errors.fields?.name_uz" />
                     <Input label="Inglizcha nomi" v-model="payload.name_en" :errors="errors.fields?.name_en" />
                     <Input label="Majlis sanasi" type="date" v-model="payload.meeting_date" :errors="errors.fields?.meeting_date" />
@@ -29,13 +33,6 @@
             </div>
         </div>
     </div>
-
-    <!-- <ul class="list-group mt-3">
-        <li class="list-group-item d-flex justify-content-between link" v-for="meeting in meetings" :key="meeting.id" @click="redirectToMeetingUpdate(meeting.id)">
-            <span>{{ meeting.name_uz }}</span>
-            <span>{{ meeting.meeting_date }}</span>
-        </li>
-    </ul> -->
 </template>
 
 <style scoped>

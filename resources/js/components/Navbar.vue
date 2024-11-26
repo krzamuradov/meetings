@@ -24,12 +24,6 @@
                     <li class="nav-item">
                         <RouterLink class="nav-link" :to="{ name: 'home' }" exact-active-class="active">Bosh sahifa</RouterLink>
                     </li>
-                    <li class="nav-item">
-                        <RouterLink class="nav-link" :to="{ name: 'meetingCreate' }" exact-active-class="active">Meeting create</RouterLink>
-                    </li>
-                    <li class="nav-item">
-                        <RouterLink class="nav-link" :to="{ name: 'documentsList', params: { id: 1 } }" exact-active-class="active">Documents List</RouterLink>
-                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">

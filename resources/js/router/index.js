@@ -18,6 +18,16 @@ const routes = [
                 component: () => import('@/views/MeetingCreate.vue'),
             },
             {
+                path: 'meeteng/update/:id',
+                name: 'meetingUpdate',
+                component: () => import('@/views/MeetingUpdate.vue'),
+            },
+            {
+                path: 'meeteng/show/:id',
+                name: 'meetingShow',
+                component: () => import('@/views/MeetingShow.vue'),
+            },
+            {
                 path: 'documents/list/:id',
                 name: 'documentsList',
                 component: () => import('@/views/DocumentsList.vue'),

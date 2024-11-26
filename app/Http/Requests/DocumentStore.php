@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MeetingStore extends FormRequest
+class DocumentStore extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,10 @@ class MeetingStore extends FormRequest
     public function rules(): array
     {
         return [
-            "name_uz" => ["required", "unique:meetings,name_uz"],
-            "name_en" => ["required", "unique:meetings,name_en"],
-            "meeting_date" => ["required"],
+            "name_uz" => ["required"],
+            "name_en" => ["required"],
+            "file" => ["required", "file"],
+            "meeting_id" => ["required"],
         ];
     }
 }
