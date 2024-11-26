@@ -45,7 +45,7 @@
                     <td class="col-1">{{ index + 1 }}</td>
                     <td class="col-9">{{ document.name_uz }}</td>
                     <td class="col-2">
-                        <a href="#" class="btn">
+                        <a :href="`/storage/${document.file}`" class="btn">
                             <i class="fa fa-download text-success"></i>
                         </a>
                         <a href="#" class="btn">
